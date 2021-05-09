@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Spam Mail Filter</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+
+</head>
+
+<body>
+	
+	<div class="limiter">
+		<div class="container-spam100" style="background-image: url('background.png'); background-color: #505451;">
+			<div class="wrap-spam100">
+				<form action="{{ url_for('predict')}}" method="POST" class="spam100-form" >
+
+                <center>
+
+					<span class="spam100-form-title">
+						Spam Mail Filter 
+					</span>
+
+					
+					
+					<div class="warp-text100">
+						<span class="txt1">
+							Put Your Message
+						</span>
+					</div>
+
+					<div class="wrap-input100" data-validate = "spam-filter is required">
+						<input class="input100" type="text" name="message" required="" placeholder="text here">
+						<span class="focus-input100"></span>
+					</div>
+					
+
+                    <div class="container-spam100-form-btn">
+						<div class="spam100-form-btn">
+							<input type="Submit" value="Filter" 
+							style="font-family:'Prompt', sans-serif;
+							font-size: 26px; 
+							color: #fff;
+							background:transparent;
+							height:100%;
+							width: 100%">
+						</div>
+					</div>
+
+
+
+
+					<div class="warp-text100">
+						<span class="txt1">
+							Status Output
+						</span>	
+					</div>
+
+
+					<div class="wrap-output100" data-validate = "spam-output is required">
+						<button class="output100" disabled=""></button>
+						{% if prediction == 1%}
+						<button class="output100" disabled="" style="color: red;">This is a Spam Message!</button>
+						{% elif prediction == 0%}
+						<button class="output100" disabled="" style="color: green;">This is a Safe Message</button>
+						{% endif %}
+					</div>
+                
+                    <div class="warp-text100">
+						<span class="txt1">
+							Final Year Project | ASET | AUR 2021 
+						</span>
+					</div>
+
+                </center>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
